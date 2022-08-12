@@ -15,4 +15,14 @@ const getOneProductController = async (req, res) => {
     res.render("plantillaProducts.ejs", { user, products })
 }
 
-export { getAllProductsController, getOneProductController }
+const postNewProduct = async (req, res) => {
+    const newProduct = req.body
+    const { user } = req.session
+
+    await productDAO.createDocument(newProduct)
+    const products = await productDAO.getAll()
+    
+    res.render("plantillaProducts.ejs", { user, products })
+}
+
+export { getAllProductsController, getOneProductController, postNewProduct }

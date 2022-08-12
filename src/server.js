@@ -29,7 +29,7 @@ app.use(
     saveUninitialized: false,
     rolling: true, //ACA LO QUE HACEMOS ES DECIRLE QUE NOS RENUEVE EL TIEMPO DE EXPIRACION DE LA SESION CON CADA REQUEST
     cookie: {
-      maxAge: 3000,
+      maxAge: 120000,
     },
   })
 )
